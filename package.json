@@ -1,0 +1,32 @@
+{
+  "name": "mercado-back",
+  "version": "1.0.0",
+  "description": "Express app",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --exec babel-node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sagudecod97/meli-express-test.git"
+  },
+  "author": "Santiago Agudelo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sagudecod97/meli-express-test/issues"
+  },
+  "homepage": "https://github.com/sagudecod97/meli-express-test#readme",
+  "dependencies": {
+    "@babel/core": "^7.24.3",
+    "@babel/node": "^7.23.9",
+    "@babel/preset-env": "^7.24.3",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "morgan": "^1.10.0",
+    "node-fetch": "^3.3.2",
+    "nodemon": "^3.1.0"
+  }
+}
