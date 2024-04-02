@@ -6,6 +6,8 @@ import morgan from "morgan";
 import searchRouter from "./src/resources/search/search.router";
 import itemsRouter from "./src/resources/items/items.router";
 
+const PORT = process.env.PORT || 3000;
+
 const app = express();
 
 /* Middlewares */
@@ -18,5 +20,5 @@ app.use("/api/items", searchRouter);
 app.use("/api/items", itemsRouter);
 
 export const start = () => {
-  app.listen(3000, () => console.log("App listenin on PORT: 3000"));
+  app.listen(PORT, () => console.log(`App listenin on PORT: ${PORT}`));
 };
