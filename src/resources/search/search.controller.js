@@ -1,14 +1,16 @@
 import fetch from "node-fetch";
 import { formatCategories, formatItems } from "../../utils/format.utils";
-
-const BASE_URL = "https://api.mercadolibre.com/sites/MLA";
+import { BASE_URL_API } from "../../utils/constants.utils";
 
 export const getSearchQuery = async (req, res) => {
   try {
     const { q } = req.query;
+    // const { authorization } = req.headers;
 
-    const request = await fetch(`${BASE_URL}/search?q=${q}`);
+    const request = await fetch(`${BASE_URL_API}/sites/MCO/search?q=${q}`);
     const response = await request.json();
+
+    console.log("response: ", response);
 
     const results = {
       categories: formatCategories(response.filters),

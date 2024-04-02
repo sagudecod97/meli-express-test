@@ -1,20 +1,20 @@
 import fetch from "node-fetch";
 import { getDecimals } from "../../utils/helpers.utils";
+import { BASE_URL_API } from "../../utils/constants.utils";
 
 export const getItemDetails = async (req, res) => {
   try {
     const { id } = req.params;
+    const { authorization } = req.headers;
 
-    const requestDetails = await fetch(
-      `https://api.mercadolibre.com/items/${id}`
-    );
+    const requestDetails = await fetch(`${BASE_URL_API}/items/${id}`);
     const responseDetails = await requestDetails.json();
 
     if (requestDetails.status === 404)
       return res.status(404).json({ message: "Id not found" });
 
     const requestDescription = await fetch(
-      `https://api.mercadolibre.com/items/${id}/description`
+      `${BASE_URL_API}/items/${id}/description`
     );
     const responseDescription = await requestDescription.json();
 
