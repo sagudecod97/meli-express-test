@@ -5,6 +5,7 @@ import morgan from "morgan";
 
 import searchRouter from "./src/resources/search/search.router";
 import itemsRouter from "./src/resources/items/items.router";
+import authRouter from "./src/resources/auth/auth.router";
 
 const PORT = process.env.PORT || 3000;
 
@@ -16,6 +17,7 @@ app.use(json());
 app.use(urlencoded({ extended: true }));
 app.use(morgan("dev"));
 
+app.use("/api", authRouter);
 app.use("/api/items", searchRouter);
 app.use("/api/items", itemsRouter);
 
