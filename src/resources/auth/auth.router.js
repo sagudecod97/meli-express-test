@@ -5,6 +5,6 @@ const authRouter = Router();
 
 authRouter.get("/auth/mercadolibre", initiateOauthFlow);
 
-authRouter.get("/auth/mercadolibre/callback", authorizationResponse);
+authRouter.get("/auth/mercadolibre/callback/:code", authorizationResponse);
 
 export default authRouter;

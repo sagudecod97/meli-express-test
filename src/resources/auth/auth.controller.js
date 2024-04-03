@@ -8,13 +8,20 @@ import {
 } from "../../utils/constants.utils";
 
 export const initiateOauthFlow = (req, res) => {
+  const { code } = req.query;
+
+  if (code) {
+    return res.redirect(`/api/auth/mercadolibre/callback/${code}`);
+  }
+
   const redirectUrl = `${BASE_URL_OAUTH}/authorization?response_type=code&client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}`;
   res.redirect(redirectUrl);
 };
 
 export const authorizationResponse = async (req, res) => {
   try {
-    const { code } = req.query;
+    const { code } = req.params;
+
     const requestBody = new URLSearchParams({
       grant_type: "authorization_code",
       client_id: CLIENT_ID,
